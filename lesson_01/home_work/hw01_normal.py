@@ -25,16 +25,23 @@ user_input = input("Enter number:\n")
 print("Max int: ", max(user_input))
 
 # 2nd part:
-a = int(input("Enter number:\n"))
-b = int(input("Enter another number:\n"))
-a, b = b, a
-print(a, b)
+first = int(input("Enter number:\n"))
+second = int(input("Enter another number:\n"))
+first, second = second, first
+print(first, second)
 
 # 3rd part:
-a = 1 # a <= 0
-b = 3
-c = -4
-print("x2 + 3x - 4 = 0")
-x1 = int(((-b) + math.sqrt(b * b - 4 * a * c)) / (2 * a))
-x2 = int(((-b) - math.sqrt(b * b - 4 * a * c)) / (2 * a))
-print("x1 = ", x1, "\nx2 = ", x2)
+print("ax2 + bx - c = 0")
+a = int(input("Enter 'a':\n"))
+b = int(input("Enter 'b':\n"))
+c = int(input("Enter 'c':\n"))
+d = (b * b) - (4 * a * c) # discriminant
+if d > 0:
+    x1 = (-b + math.sqrt(d)) / (2 * a)
+    x2 = (-b - math.sqrt(d)) / (2 * a)
+    print("x1 = ", x1, "\nx2 = ", x2)
+elif d == 0:
+    x = -b / 2 * a
+    print("x = ", x)
+else:
+    print("Your function has no real roots.")
