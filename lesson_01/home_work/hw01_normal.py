@@ -1,5 +1,5 @@
 
-__author__ = 'Ваши Ф.И.О.'
+__author__ = "Iaroslav Marushchak"
 
 # Задача-1: Запросите у пользователя ввод произвольного целого числа
 # Вывести самую большую цифру этого числа.
@@ -18,3 +18,26 @@ __author__ = 'Ваши Ф.И.О.'
 # Для вычисления квадратного корня воспользуйтесь функцией sqrt() модуля math
 # import math
 # math.sqrt(4) - вычисляет корень числа 4
+import math
+
+# 1st part:
+user_input = input("Enter number:\n")
+user_input_list = []
+for i in user_input:
+    user_input_list.append(int(i))
+print("Max int: ", max(user_input_list))
+
+# 2nd part:
+a = int(input("Enter number:\n"))
+b = int(input("Enter another number:\n"))
+a, b = b, a
+print(a, b)
+
+# 3rd part:
+a = 1 # a <= 0
+b = 3
+c = -4
+print("x2 + 3x - 4 = 0")
+x1 = int(((-b) + math.sqrt(b * b - 4 * a * c)) / (2 * a))
+x2 = int(((-b) - math.sqrt(b * b - 4 * a * c)) / (2 * a))
+print("x1 = ", x1, "\nx2 = ", x2)

@@ -1,5 +1,5 @@
 
-__author__ = 'Ваши Ф.И.О.'
+__author__ = "Iaroslav Marushchak"
 
 # Задача-1: Запросите у пользователя ввод произвольного целого числа
 # Необходимо вывести поочередно цифры введенного пользователем числа
@@ -16,3 +16,20 @@ __author__ = 'Ваши Ф.И.О.'
 # иначе "Извините, пользование данным ресурсом только с 18 лет"
 
 
+# 1st part:
+user_input = input("Enter number:\n")
+print("Your input is: ", user_input)
+
+# 2nd part:
+a = int(input("Enter number:\n"))
+b = int(input("Enter another number:\n"))
+a, b = b, a
+print(a, b)
+
+# 3rd part:
+age_limit = "18"
+user_age = input("Enter your age:\n")
+if user_age >= age_limit:
+    print("Access allowed")
+else:
+    print("Access denied. You're under", age_limit)
