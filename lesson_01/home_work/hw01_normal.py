@@ -22,10 +22,7 @@ import math
 
 # 1st part:
 user_input = input("Enter number:\n")
-user_input_list = []
-for i in user_input:
-    user_input_list.append(int(i))
-print("Max int: ", max(user_input_list))
+print("Max int: ", max(user_input))
 
 # 2nd part:
 a = int(input("Enter number:\n"))
