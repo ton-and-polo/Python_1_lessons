@@ -18,7 +18,9 @@ __author__ = "Iaroslav Marushchak"
 
 # 1st part:
 user_input = input("Enter number:\n")
-print("Your input is: ", user_input)
+list(user_input)
+for i in user_input:
+    print(i)
 
 # 2nd part:
 a = int(input("Enter number:\n"))
