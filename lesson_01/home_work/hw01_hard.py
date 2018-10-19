@@ -12,8 +12,9 @@ __author__ = "Iaroslav Marushchak"
 
 # Вопрос: Чему была равна переменная a,
 # если точно известно, что её значение не изменялось?
+import math
 
-a = float('inf') # a = infinity
+a = math.inf # a = infinity
 print(a > 999999)
 print(a == a ** 2)
 print(a == a * 2)
