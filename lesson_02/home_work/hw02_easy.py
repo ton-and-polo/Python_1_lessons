@@ -13,6 +13,13 @@
 
 # Подсказка: воспользоваться методом .format()
 
+# 1
+fruit_list = ["яблоко", "банан", "киви", "арбуз"]
+index = 1 # initial value
+for i in fruit_list:
+    print("{}.{}".format(index, i))
+    index += 1
+
 
 # Задача-2:
 # Даны два произвольные списка.
