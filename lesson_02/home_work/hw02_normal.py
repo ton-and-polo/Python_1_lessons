@@ -115,4 +115,20 @@ print(my_list)
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
 # выведите результаты
 
+# 4
+# a)
+lst_a = [1, 2, 4, 5, 6, 2, 5, 2]
+lst_a.sort()
+for i in lst_a:
+    if lst_a.count(i) > 1:
+       lst_a.remove(i)
+lst_a2 = lst_a.copy()
+print(lst_a2)
 
+# b)
+lst_b = [1, 2, 4, 5, 6, 2, 5, 2]
+lst_b2 =[]
+for i in lst_b:
+    if lst_b.count(i) == 1:
+        lst_b2.append(i)
+print(lst_b2)
