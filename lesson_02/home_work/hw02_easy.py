@@ -14,6 +14,7 @@
 # Подсказка: воспользоваться методом .format()
 
 # 1
+print("1st part:")
 fruit_list = ["apple", "banana", "kiwi", "watermelon"]
 index = 1 # initial value
 for i in fruit_list:
@@ -26,6 +27,7 @@ for i in fruit_list:
 # Удалите из первого списка элементы, присутствующие во втором списке и выведите результат.
 
 # 2
+print("2nd part:")
 x = [1, 2, 3, 12, 8, 93] # arbitrary list
 y = [1, 5, 3, 8] # another arbitrary list
 i = 0
@@ -43,6 +45,7 @@ print(x)
 # и выведите результат
 
 # 3
+print("3rd part:")
 arbitrary_list = [2, 3, 12, 8, 93]
 new_arbitrary_list = []
 for i in arbitrary_list:
