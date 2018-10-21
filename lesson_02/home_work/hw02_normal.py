@@ -6,6 +6,7 @@
 # Пример: Дано: [2, -5, 8, 9, -25, 25, 4]   Результат: [3, 5, 2]
 
 # 1
+print("1st part:")
 import cmath
 
 x = [2, -5, 8, 9, -25, 25, 4]
@@ -25,6 +26,7 @@ print(new_x)
 # Склонением пренебречь (2000 года, 2010 года)
 
 # 2
+print("2nd part:")
 date = "02.11.2013."
 
 days = {
@@ -98,9 +100,10 @@ print("{} {},".format(month, day), year)
 # выведите созданный список
 
 # 3
+print("3rd part:")
 import random
 my_list = []
-my_list_length = random.randint(1, 10) # range 1-10
+my_list_length = random.randint(1, 10) # 1 <= my_list_length <= 10
 i = 0
 while i < my_list_length:
     my_list.append(random.randint(-100, 100))
@@ -116,7 +119,9 @@ print(my_list)
 # выведите результаты
 
 # 4
+print("4th part:")
 # a)
+print("a)")
 lst_a = [1, 2, 4, 5, 6, 2, 5, 2]
 lst_a.sort()
 for i in lst_a:
@@ -126,6 +131,7 @@ lst_a2 = lst_a.copy()
 print(lst_a2)
 
 # b)
+print("b)")
 lst_b = [1, 2, 4, 5, 6, 2, 5, 2]
 lst_b2 =[]
 for i in lst_b:
