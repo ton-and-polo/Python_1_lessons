@@ -97,6 +97,16 @@ print("{} {},".format(month, day), year)
 # для получения случайного числа используйте функцию randint() модуля random
 # выведите созданный список
 
+# 3
+import random
+my_list = []
+my_list_length = random.randint(1, 10) # range 1-10
+i = 0
+while i < my_list_length:
+    my_list.append(random.randint(-100, 100))
+    i += 1
+print(my_list)
+
 # Задача-4: Дан список, заполненный произвольными целыми числами.
 # Получите новый список, элементами которого будут:
 # а) неповторяющиеся элементы исходного списка:
