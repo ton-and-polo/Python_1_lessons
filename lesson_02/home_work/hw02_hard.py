@@ -29,24 +29,33 @@ print("y = {}".format(k * x + b))
 #  (в зависимости от месяца, февраль не учитываем)
 # 3. Месяц должен приводиться к целому числу в диапазоне от 1 до 12
 # 4. Год должен приводиться к целому положительному числу в диапазоне от 1 до 9999
-"""
+
 # 2
 print("2nd part:")
-date = "12.01.2018"#input("Enter date (dd.mm.yyyy):\n")
-day = int(date[:2])
-month = int(date[3:5])
-year = int(date[-4:])
+date = input("Enter date (dd.mm.yyyy):\n")
 
-if 0 < day <= 31:
-    print("+")
+date_list = date.split(".")
+
+date_length = 0 # initial value
+for i in date_list:
+    date_length += len(i)
+
+correct_date_length= 8
+max_day = 31
+max_month = 12
+max_year = 9999
+
+day = int(date_list[0])
+month = int(date_list[1])
+year = int(date_list[2])
+
+if date_length != correct_date_length:
+    print("Invalid date format")
+elif max_day < day or day < 0:
+    print("Invalid day")
+elif max_month < month or month < 0:
+    print("Invalid month")
+elif max_year < year or max_year < 0:
+    print("Invalid year")
 else:
-    print("!")
-"""
-"""
-# Пример корректной даты
-date = '01.11.1985'
-# Примеры некорректных дат
-date = '01.22.1001'
-date = '1.12.1001'
-date = '-2.10.3001'
-"""
+    print("Correct date format")
