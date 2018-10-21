@@ -12,16 +12,13 @@
 # 4.  арбуз
 
 # Подсказка: воспользоваться методом .format()
-"""
+
 # 1
-fruit_list = ["яблоко", "банан", "киви", "арбуз"]
+fruit_list = ["apple", "banana", "kiwi", "watermelon"]
 index = 1 # initial value
 for i in fruit_list:
     print("{}.{}".format(index, i))
     index += 1
-
-"""
-
 
 
 # Задача-2:
@@ -32,7 +29,7 @@ for i in fruit_list:
 x = [1, 2, 3, 12, 8, 93] # arbitrary list
 y = [1, 5, 3, 8] # another arbitrary list
 i = 0
-for elemnt in x:
+for element in x:
     if x[i] == y[i]:
         x.pop(i)
     i += 1
@@ -45,3 +42,14 @@ print(x)
 # если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
 # и выведите результат
 
+# 3
+arbitrary_list = [2, 3, 12, 8, 93]
+new_arbitrary_list = []
+for i in arbitrary_list:
+    if i % 2 == 0:
+        i /= 4
+        new_arbitrary_list.append(i)
+    else:
+        i *= 2
+        new_arbitrary_list.append(i)
+print(new_arbitrary_list)
