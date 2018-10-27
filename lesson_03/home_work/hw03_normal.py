@@ -7,6 +7,22 @@
 # Для сортировки используйте любой алгоритм (например пузырьковый).
 # Для решения данной задачи нельзя использовать встроенную функцию и метод sort()
 
+# 3:
+print("3rd part:")
+
+my_list = [-10, 2, 66, 7, 3, 0, 66]
+
+def bubble_sort(lst):
+    counter = 1
+    while counter < len(lst):
+         for i in range(len(lst) - counter): # - counter: not compare sorted i
+              if lst[i] > lst[i+1]:
+                  lst[i], lst[i+1] = lst[i+1], lst[i]
+         counter += 1
+    return lst
+
+print(bubble_sort(my_list))
+
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
 # Разумеется, внутри нельзя использовать саму функцию filter.
