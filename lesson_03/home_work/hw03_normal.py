@@ -2,12 +2,30 @@
 # Напишите функцию, возвращающую ряд Фибоначчи с n-элемента до m-элемента.
 # Первыми элементами ряда считать цифры 1 1
 
+# 1:
+print("1st part:")
+
+def fibonacci_sequence(start, stop): # Fn = F(n-1) + F(n-2)
+    a = 0
+    b = 1
+    # evaluate fibonacci till start point:
+    for _ in range(start - 1):
+        a, b = b, a + b
+    # evaluate fibonacci till stop point:
+    index = start
+    while index <= stop:
+        a, b = b, a + b
+        print("f{}:{}".format(index, a))
+        index += 1
+
+print(fibonacci_sequence(4, 10))
+
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
 # Для сортировки используйте любой алгоритм (например пузырьковый).
 # Для решения данной задачи нельзя использовать встроенную функцию и метод sort()
 
-# 3:
+# 2:
 print("3rd part:")
 
 my_list = [-10, 2, 66, 7, 3, 0, 66]
