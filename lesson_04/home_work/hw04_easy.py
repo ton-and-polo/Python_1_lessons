@@ -18,6 +18,15 @@ print(new_lst)
 # Даны два списка фруктов.
 # Получить список фруктов, присутствующих в обоих исходных списках.
 
+# 2
+print("2nd part:")
+
+fruits1 = ["apple", "banana", "kiwi", "watermelon"]
+fruits2 = ["apple", "watermelon", "apricot", "kiwi", "orange"]
+
+same_fruits = [i for i in fruits1 if i in fruits2]
+print(same_fruits)
+
 
 # Задание-3:
 # Дан список, заполненный произвольными числами.
