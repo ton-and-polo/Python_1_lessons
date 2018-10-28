@@ -4,6 +4,40 @@
 # Т.е. из строки "mtMmEZUOmcq" нужно получить ['mt', 'm', 'mcq']
 # Решить задачу двумя способами: с помощью re и без.
 
+# 1
+print("1st part:")
+import re
+
+# with re:
+string = "mtMmEZUOmcq"
+lower_case = re.findall('([a-z]+)', string)
+print(lower_case)
+
+# without re:
+def split_by_upper(string):
+    result = []
+    element = ""
+    index = 1
+
+    for i in string:
+        if i.islower():
+            element += i
+        elif i.isupper():
+            if len(element) != 0:
+                result.append(element)
+                element = ""
+        index += 1
+
+        if index > len(string):
+            result.append(element)
+            element = ""
+            
+    return result
+
+my_string = "mtMmEZUOmcq"
+
+print(split_by_upper(my_string))
+
 
 # Задание-2:
 # Вывести символы в верхнем регистре, слева от которых находятся
