@@ -27,7 +27,6 @@ fruits2 = ["apple", "watermelon", "apricot", "kiwi", "orange"]
 same_fruits = [i for i in fruits1 if i in fruits2]
 print(same_fruits)
 
-
 # Задание-3:
 # Дан список, заполненный произвольными числами.
 # Получить список из элементов исходного, удовлетворяющих следующим условиям:
@@ -35,3 +34,10 @@ print(same_fruits)
 # + Элемент неотрицательный
 # + Элемент не кратен 3
 
+# 3
+print("3rd part:")
+
+numbers = [0, 11, -5, 6, 22, 18, 10]
+new_numbers = [i for i in numbers if i % 2 == 0 and i > 0 and i % 3 != 0]
+
+print(new_numbers)
