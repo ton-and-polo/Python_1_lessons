@@ -31,7 +31,7 @@ def split_by_upper(string):
         if index > len(string):
             result.append(element)
             element = ""
-            
+
     return result
 
 my_string = "mtMmEZUOmcq"
@@ -46,6 +46,46 @@ print(split_by_upper(my_string))
 # "GAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLec"
 # нужно получить список строк: ['AY', 'NOGI', 'P']
 # Решить задачу двумя способами: с помощью re и без.
+
+# 2
+print("2nd part:")
+import re
+
+# with re:
+string = "GAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLec"
+pattern = "[a-z]{2}([A-Z]+)[A-Z]{2}"
+upper_case = re.findall(pattern, string)
+print(upper_case)
+
+# without re:
+def split_by_xx_item_XX(string):
+    result = []
+    lower = ""
+    element = ""
+
+    for i in string:
+        if i.islower():
+            lower += i
+            if len(lower) == 3 and len(element) >= 3:
+                if element[-3:-1].isupper():
+                    element = element[:-2]
+                    result.append(element)
+                    element = ""
+                    lower = lower[2]
+            elif len(lower) == 3 and len(element) < 3:
+                element = ""
+                lower = lower[1:]
+        elif i.isupper():
+            if len(lower) < 2:
+                lower = ""
+            elif len(lower) == 2:
+                element += i
+
+    return result
+
+my_string = "GAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLec"
+
+print(split_by_xx_item_XX(my_string))
 
 
 # Задание-3:
