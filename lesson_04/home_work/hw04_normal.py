@@ -95,3 +95,67 @@ print(split_by_xx_item_XX(my_string))
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
+# 3
+print("3rd part:")
+
+import os
+import re
+import random
+
+
+def sort_item_by_length(lst):
+    # Sorting items in the list by its length.
+    # The result is list with the biggest item in the end
+    counter = 1
+    while counter < len(lst):
+        for i in range(len(lst) - counter):
+            if len(lst[i]) > len(lst[i + 1]):
+                lst[i], lst[i + 1] = lst[i + 1], lst[i]
+        counter += 1
+    return lst
+
+def items_same_length(lst):
+    # Compare items length in list with last one.
+    # If length is equal append this item to new list
+    result = []
+    for i in lst:
+        if len(i) == len(lst[-1]):
+            result.append(i)
+    return result
+
+
+# create file
+with open("my_file.txt", "w", encoding="UTF-8") as my_file:
+    for i in range(2500):
+        i = str(random.randint(0, 9))
+        my_file.write(i)
+
+
+# read file
+path = os.path.join("my_file.txt")
+with open(path, "r", encoding="UTF-8") as my_file:
+    for line in my_file:
+        patterns = [
+            "\d([0]+)",
+            "\d([1]+)",
+            "\d([2]+)",
+            "\d([3]+)",
+            "\d([4]+)",
+            "\d([5]+)",
+            "\d([6]+)",
+            "\d([7]+)",
+            "\d([8]+)",
+            "\d([9]+)",
+        ]
+
+        result = []
+        for pattern in patterns:
+            find = re.findall(pattern, line)
+            find = sort_item_by_length(find)
+            find = find[-1]
+            result.append(find)
+
+        result = sort_item_by_length(result)
+        result = items_same_length(result)
+
+        print(result)
