@@ -27,7 +27,7 @@ print(new_x)
 
 # 2
 print("2nd part:")
-date = "02.11.2013."
+date = input("Enter date (dd.mm.yyyy):\n")
 
 days = {
     "01":"1st",
