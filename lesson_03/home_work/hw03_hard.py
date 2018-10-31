@@ -18,6 +18,58 @@
 # они получают удвоенную ЗП, пропорциональную норме.
 # Кол-во часов, которые были отработаны, указаны в файле "data/hours_of"
 
+# 2
+print("2nd part:")
+import os
+
+# paths:
+path_workers = os.path.join("data", "workers")
+path_hours = os.path.join("data", "hours_of")
+
+# store all lines in file_1_data:
+file = open(path_workers, "r", encoding="UTF-8")
+file_1_data = file.readlines()
+
+# store all lines in file_2_data:
+file = open(path_hours, "r", encoding="UTF-8")
+file_2_data = file.readlines()
+
+workers = [] # list dictionary
+i = 1
+for line in range(len(file_1_data) - 1):
+    info = {}
+    name, surname, salary, position, rate_hours = file_1_data[i].split()
+
+    info["full_name"] = name + " " + surname
+    info["salary"] = int(salary)
+    info["position"] = position
+    info["rate_hours"] = int(rate_hours)
+    info["salary_per_hour"] = int(info["salary"] / info["rate_hours"])
+    workers.append(info)
+    i += 1
+
+
+hours_of = [] # list dictionary
+i = 1
+for line in range(len(file_2_data) - 1):
+    info = {}
+    name, surname, hours = file_2_data[i].split()
+    info["full_name"] = name + " " + surname
+    info["hours"] = int(hours)
+    hours_of.append(info)
+    i += 1
+
+# append real_hours to workers list:
+for line in workers:
+    for i_hours_of in hours_of:
+        if line["full_name"] == i_hours_of["full_name"]:
+            line["hours"] = i_hours_of["hours"]
+            continue
+    # evaluate salary:
+    line["result_salary"] = line["salary_per_hour"] * line["hours"]
+
+
+    print("{} - {} rub.".format(line["full_name"], line["result_salary"]))
 
 # Задание-3:
 # Дан файл ("data/fruits") со списком фруктов.
