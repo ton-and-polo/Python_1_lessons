@@ -5,6 +5,26 @@
 
 # 1:
 print("1st part:")
+import os
+
+
+# add directories:
+index = 1
+num_of_dir = 9
+for item in range(num_of_dir):
+    file_name = "dir_" + str(index)
+    path = os.path.join(os.getcwd(), file_name)
+    os.mkdir(path)
+    index += 1
+
+# delete directories:
+index = 1
+num_of_dir = 9
+for item in range(num_of_dir):
+    file_name = "dir_" + str(index)
+    path = os.path.join(os.getcwd(), file_name)
+    os.rmdir(path)
+    index += 1
 
 
 # Задача-2:
@@ -12,6 +32,7 @@ print("1st part:")
 
 # 2
 print("2nd part:")
+import os
 
 directories = os.listdir()
 print(directories)
