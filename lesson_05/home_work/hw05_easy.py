@@ -6,11 +6,10 @@
 # 1:
 print("1st part:")
 
-import os
-
 
 # Задача-2:
 # Напишите скрипт, отображающий папки текущей директории.
+
 # 2
 print("2nd part:")
 
@@ -19,4 +18,20 @@ print(directories)
 
 # Задача-3:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
+
+# 3
+print("3rd part:")
+import os
+import shutil
+
+
+cwd = __file__
+file_name = __file__.split("/")
+file_name = file_name[-1]
+file_name = file_name.split(".")
+copy = "_copy."
+dst = os.path.join(os.getcwd(), (file_name[0] + copy + file_name[1]))
+
+shutil.copy2(cwd, dst)
+
 
