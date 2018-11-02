@@ -54,5 +54,3 @@ copy = "_copy."
 dst = os.path.join(os.getcwd(), (file_name[0] + copy + file_name[1]))
 
 shutil.copy2(cwd, dst)
-
-
