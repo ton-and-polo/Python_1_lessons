@@ -7,7 +7,7 @@ menu = print("Menu:\n[1] go to file\n[2] list files in dir\n[3] delete dir\n[4] 
 user_input = int(input("Enter menu item [1-4]: "))
 
 
-files = easy.list_dir()
+files = easy.dir_cont()
 
 if user_input == 1:
     dir_name = input("Enter dir_name:\n")
