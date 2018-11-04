@@ -3,6 +3,25 @@ import re
 
 # function - list dir:
 def list_dir():
+    files = dir_cont()
+    result = []
+    for i in files:
+        if is_dir(i):
+            result.append(i)
+    return result
+
+# function - is directory
+def is_dir(file):
+    pattern = ".\w+"
+    result = re.findall(pattern, file)
+
+    if len(result) == 1:
+        return True
+    elif len(result) > 1:
+        return False
+
+# function - dir content:
+def dir_cont():
     return os.listdir()
 
 # function - make dir:
