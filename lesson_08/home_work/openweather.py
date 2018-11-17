@@ -123,3 +123,108 @@ OpenWeatherMap — онлайн-сервис, который предостав�
 
 """
 
+import json
+import sqlite3
+import urllib.request
+import io
+import gzip
+import os
+
+
+# App_id:
+id_file = open("app.id", "r", encoding="UTF-8")
+app_id = id_file.readline() # app_id = f8961adb73646d76c00bd49e4a9074bd
+
+print("App id is: {}".format(app_id))
+
+# Automate download and unpacking json file:
+file_url = "http://bulk.openweathermap.org/sample/city.list.json.gz"
+file_name = file_url.split("/")[-1] # city.list.json.gz
+outfile_path = file_name[:-3] # city.list.json
+
+if outfile_path not in os.listdir():
+    print("Download and read json file. It may take a while.")
+    response = urllib.request.urlopen(file_url)
+    compressed_file = io.BytesIO(response.read())
+    decompressed_file = gzip.GzipFile(fileobj=compressed_file)
+
+    with open(outfile_path, "wb") as outfile:
+        outfile.write(decompressed_file.read())
+else:
+    print("File {} already exists.".format(outfile_path))
+
+json_file = outfile_path
+
+with open(json_file) as file:
+    jason_data = json.load(file)
+
+print("Making city_list from json file. It may take a while.")
+
+city_list = []
+counter = 0
+for i in jason_data:
+    if i.get("name") in city_list:
+        pass
+    else:
+        append_item = {"name": i.get("name"), "id": i.get("id")}
+        city_list.append(append_item)
+        counter += 1
+
+def user_city(city_list):
+    user_city = input("Enter city (e.g. London): ")
+    user_city_id = ""
+    for i in city_list:
+        if user_city == i.get("name"):
+            user_city_id += str(i.get("id"))
+            return user_city_id
+
+user_city_id = user_city(city_list)
+print("User city id: {}".format(user_city_id))
+
+
+def weather_request(id, app_id):
+    from urllib import request
+    url = "http://api.openweathermap.org/data/2.5/weather?" + "id=" + id + "&appid=" + app_id
+    response = request.urlopen(url)
+    return response.read()
+
+
+my_bytes = weather_request(user_city_id, app_id) # request in bytes
+my_json = my_bytes.decode("utf-8")
+data = json.loads(my_json)
+
+print("My json request is: {}".format(data))
+
+# Make class Weather:
+class Weather:
+    def __init__(self, city_id, data):
+        self.city_id = city_id
+        self.data = data
+        self.__city = self.data.get("name")
+        self.__date = self.data.get("dt")
+
+    def get_temperature(self):
+        self.get_main = self.data.get("main")
+        return self.get_main.get("temp")
+
+    def get_weather_id(self):
+        self.get_weather = self.data.get("weather")
+        return self.get_weather[0].get("id")
+    @property
+    def weather(self):
+        return [self.city_id, self.__city, str(self.__date), str(self.get_temperature()), str(self.get_weather_id())]
+
+weather = Weather(user_city_id, data).weather
+
+# Make db table:
+conn = sqlite3.connect("weather.db")
+cursor = conn.cursor()
+cursor.execute("CREATE TABLE IF NOT EXISTS weather(city_id text, city text, date text, temperature text, weather_id text)")
+
+# Insert data:
+cursor.execute("INSERT OR REPLACE INTO weather VALUES(?, ?, ?, ?, ?)", weather)
+# Save changes:
+conn.commit()
+
+# Print db:
+print("My bd is:", list(cursor.execute("SELECT * FROM weather")))
